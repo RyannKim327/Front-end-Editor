@@ -73,7 +73,7 @@ text-shadow: 1vw 1vw 1px #d1fee2;
 <li>Can I customized the editing field?</li>
 <p>&emsp;Yes, you can. By going to the menu, look for the Settings, and you may edit the editing field by what you want.</p>
 <li>How to use external syntax?</li>
-<p>&emsp;Just like using <code>&lt;link href=&quot;styles.css&quot;&gt;</code> and <code>&lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;</code>. But to avoid some file conflicts, I add . before the file. So you might use <code>&lt;link href=&quot;.styles.css&quot;&gt;</code> and <code>&lt;script src=&quot;.script.js&quot;&gt;&lt;/script&gt;</code> instread of <code>&lt;link href=&quot;styles.css&quot;&gt;</code> and <code>&lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;</code>.</p>
+<p>&emsp;Just like using the normal syntax of <code>&lt;link href="style" rel="stylesheet"&gt; and &lt;script="script.js"&gt;&lt;/script&gt;b</code>. But now, make it easier than the last version. I make it auto saved thru the default folder project.</p>
 <li>Where is the JavaScript Console?</li>
 <p>&emsp;You may see the JavaScript console by holding the line separator of the app.</p>
 </ol>
@@ -116,6 +116,12 @@ text-shadow: 1vw 1vw 1px #d1fee2;
 <li>JavaScript</li>
 </ul>
 <li>JavaScript Console</li>
+<li>Auto saved file</li>
+<ul>
+<li>Cascading Style Sheet</li>
+<li>JavaScript</li>
+</ul>
+<li>Direct save thru the folder (Project) name</li>
 </ol>
 </div>
 <div class="block">

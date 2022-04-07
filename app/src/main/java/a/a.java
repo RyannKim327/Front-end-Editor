@@ -64,7 +64,7 @@ public class a extends Activity implements TextWatcher{
 	ValueCallback<Uri> fileAccess;
 	ValueCallback<Uri[]> FileAccess;
 	String save = "";
-    String html = "<!DOCTYPE html>\n<html>\n<head>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, minimal-ui\">\n<title>This is a sample template</title>\n<link rel=\"stylesheet\" href=\".styles.css\">\n<style type=\"text/css\">\n\n</style>\n</head>\n<body>\n<p>Hello World</p>\n</body>\n<script type=\"text/javascript\" src=\".script.js\">\n</script>\n</html>";
+    String html = "<!DOCTYPE html>\n<html>\n<head>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, minimal-ui\">\n<title>This is a sample template</title>\n<link rel=\"stylesheet\" href=\"styles.css\">\n<style type=\"text/css\">\n\n</style>\n</head>\n<body>\n<p>Hello World</p>\n</body>\n<script type=\"text/javascript\" src=\"script.js\">\n</script>\n</html>";
     String css = "*{\nbox-sizing: border-box;\nborder: none;\noutline: 0;\npadding: 0;\nmargin: 0;\n}";
     String js = "console.log(\"Hello World\");";
 	String console = "";
@@ -270,6 +270,14 @@ public class a extends Activity implements TextWatcher{
 				console = s + ((s.toLowerCase().contains("error")) ? " on line " + String.valueOf(l) : "");
 			}
 		});
+		File dir = new File("/storage/emulated/0/" + preferences.getString("dir", "Front-end Editor"));
+		if(!dir.exists()){
+			dir.mkdir();
+			dir.mkdirs();
+			createHtmlFile();
+			createCSS();
+			createJS();
+		}
 		if(preferences.getBoolean("isShown", true)){
 			separator.setVisibility(View.GONE);
 			code.setVisibility(View.GONE);
@@ -413,7 +421,7 @@ public class a extends Activity implements TextWatcher{
     void createHtmlFile(){
 		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
 			if(checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
-				File f = new File("/storage/emulated/0/", ".nomedia.html");
+				File f = new File("/storage/emulated/0/" + preferences.getString("dir", "Front-end Editor")  , ".nomedia.html");
 				if(!f.exists()){
 					try {
 						f.createNewFile();
@@ -437,7 +445,7 @@ public class a extends Activity implements TextWatcher{
 				}
 			}
 		}else{
-			File f = new File("/storage/emulated/0/", ".nomedia.html");
+			File f = new File("/storage/emulated/0/" + preferences.getString("dir", "Front-end Editor"), ".nomedia.html");
 			if(!f.exists()){
 				try {
 					f.createNewFile();
@@ -464,7 +472,7 @@ public class a extends Activity implements TextWatcher{
 	void createCSS(){
 		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
 			if(checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
-				File f = new File("/storage/emulated/0", ".styles.css");
+				File f = new File("/storage/emulated/0/" + preferences.getString("dir", "Front-end Editor"), "styles.css");
 				if(!f.exists()){
 					try {
 						f.createNewFile();
@@ -485,7 +493,7 @@ public class a extends Activity implements TextWatcher{
 				}
 			}
 		}else{
-			File f = new File("/storage/emulated/0", ".styles.css");
+			File f = new File("/storage/emulated/0/" + preferences.getString("dir", "Front-end Editor"), "styles.css");
 			if(!f.exists()){
 				try {
 					f.createNewFile();
@@ -509,7 +517,7 @@ public class a extends Activity implements TextWatcher{
 	void createJS(){
 		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
 			if(checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
-				File f = new File("/storage/emulated/0", ".script.js");
+				File f = new File("/storage/emulated/0/" + preferences.getString("dir", "Front-end Editor"), "script.js");
 				if(!f.exists()){
 					try {
 						f.createNewFile();
@@ -530,7 +538,7 @@ public class a extends Activity implements TextWatcher{
 				}
 			}
 		}else{
-			File f = new File("/storage/emulated/0", ".script.js");
+			File f = new File("/storage/emulated/0/" + preferences.getString("dir", "Front-end Editor"), "script.js");
 			if(!f.exists()){
 				try {
 					f.createNewFile();
@@ -558,7 +566,7 @@ public class a extends Activity implements TextWatcher{
 				output.clearCache(true);
 				output.clearHistory();
 				output.clearFormData();
-				output.loadUrl("file:///storage/emulated/0/.nomedia.html");
+				output.loadUrl("file:///storage/emulated/0/" + preferences.getString("dir", "Front-end Editor")  + "/.nomedia.html");
 			}
 		}, 100);
 	}
@@ -581,11 +589,11 @@ public class a extends Activity implements TextWatcher{
 						case "shareastext":
 						    Intent intent = new Intent(Intent.ACTION_SEND);
 							String str = "<!--\nFile: index.html\n-->\n" + preferences.getString("html", html);
-							if(preferences.getString("html", html).contains("href=\".styles.css\"")){
-							    str += "/*\nFile: .styles.css\n*/\n" + preferences.getString("css", css);
+							if(preferences.getString("html", html).contains("href=\"styles.css\"")){
+							    str += "/*\nFile: styles.css\n*/\n" + preferences.getString("css", css);
 							}
-							if(preferences.getString("html", html).contains("src=\".script.js\"")){
-						    	str += "/*\nFile: .script.js\n*/\n" + preferences.getString("javascript", js);
+							if(preferences.getString("html", html).contains("src=\"script.js\"")){
+						    	str += "/*\nFile: script.js\n*/\n" + preferences.getString("javascript", js);
 							}
 							intent.putExtra(Intent.EXTRA_SUBJECT, str);
 							intent.putExtra(Intent.EXTRA_TEXT, str);
@@ -778,8 +786,14 @@ public class a extends Activity implements TextWatcher{
 		File f = new File(s);
 		if(f.exists()){
 			if(f.list().length > 0){
-                final ArrayAdapter<String> a = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, f.list());
-                a.sort(new Comparator<String>(){
+				final ArrayAdapter<String> a = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
+                for(int i = 0; i < f.list().length; i++){
+					if(!f.list()[i].contains(".nomedia.html") && (f.list()[i].endsWith(".html") || f.list()[i].endsWith(".css") || f.list()[i].endsWith(".js"))){
+						a.add(f.list()[i]);
+						a.notifyDataSetChanged();
+					}
+				}
+				a.sort(new Comparator<String>(){
                         @Override
                         public int compare(String p1, String p2) {
                             return p1.compareToIgnoreCase(p2);
@@ -887,6 +901,14 @@ public class a extends Activity implements TextWatcher{
 					}else{
 						code.setHorizontalFadingEdgeEnabled(true);
 						code.setHorizontallyScrolling(true);
+					}
+					File dir = new File("/storage/emulated/0/" + preferences.getString("dir", "Front-end Editor"));
+					if(!dir.exists()){
+						dir.mkdir();
+						dir.mkdirs();
+						createHtmlFile();
+						createCSS();
+						createJS();
 					}
 					run();
 					toast.makeText(a.this, "Done", 1).show();
@@ -1224,62 +1246,48 @@ public class a extends Activity implements TextWatcher{
 	@Override
 	protected void onRestart() {
 		super.onRestart();
+		File dir = new File("/storage/emulated/0/" + preferences.getString("dir", "Front-end Editor"));
+		if(!dir.exists()){
+			dir.mkdir();
+			dir.mkdirs();
+		}
+		createHtmlFile();
 		createCSS();
 		createJS();
-		createHtmlFile();
 	}
 	@Override
 	protected void onResume() {
 		super.onResume();
+		File dir = new File("/storage/emulated/0/" + preferences.getString("dir", "Front-end Editor"));
+		if(!dir.exists()){
+			dir.mkdir();
+			dir.mkdirs();
+		}
+		createHtmlFile();
 		createCSS();
 		createJS();
-		createHtmlFile();
 	}
 	@Override
 	protected void onDestroy() {
-		File a = new File("/storage/emulated/0/.nomedia.html");
-		File b = new File("/storage/emulated/0/.styles.css");
-		File c = new File("/storage/emulated/0/.script.js");
+		File a = new File("/storage/emulated/0/"  + preferences.getString("dir", "Front-end Editor")  +  "/.nomedia.html");
 		if(a.exists()){
 			a.delete();
-		}
-		if(b.exists()){
-			b.delete();
-		}
-		if(c.exists()){
-			c.delete();
 		}
 		super.onDestroy();
 	}
 	@Override
 	protected void onPause() {
-		File a = new File("/storage/emulated/0/.nomedia.html");
-		File b = new File("/storage/emulated/0/.styles.css");
-		File c = new File("/storage/emulated/0/.script.js");
+		File a = new File("/storage/emulated/0/"  + preferences.getString("dir", "Front-end Editor")  +  "/.nomedia.html");
 		if(a.exists()){
 			a.delete();
-		}
-		if(b.exists()){
-			b.delete();
-		}
-		if(c.exists()){
-			c.delete();
 		}
 		super.onPause();
 	}
 	@Override
 	protected void onStop() {
-		File a = new File("/storage/emulated/0/.nomedia.html");
-		File b = new File("/storage/emulated/0/.styles.css");
-		File c = new File("/storage/emulated/0/.script.js");
+		File a = new File("/storage/emulated/0/"  + preferences.getString("dir", "Front-end Editor")  +  "/.nomedia.html");
 		if(a.exists()){
 			a.delete();
-		}
-		if(b.exists()){
-			b.delete();
-		}
-		if(c.exists()){
-			c.delete();
 		}
 		super.onStop();
 	}
@@ -1291,17 +1299,9 @@ public class a extends Activity implements TextWatcher{
 		b.setPositiveButton("Yes", new DialogInterface.OnClickListener(){
 				@Override
 				public void onClick(DialogInterface p1, int p2) {
-					File a = new File("/storage/emulated/0/.nomedia.html");
-					File b = new File("/storage/emulated/0/.styles.css");
-					File c = new File("/storage/emulated/0/.script.js");
+					File a = new File("/storage/emulated/0/"  + preferences.getString("dir", "Front-end Editor")  +  "/.nomedia.html");
 					if(a.exists()){
 						a.delete();
-					}
-					if(b.exists()){
-						b.delete();
-					}
-					if(c.exists()){
-						c.delete();
 					}
 					finishAndRemoveTask();
 				}
