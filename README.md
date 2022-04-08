@@ -16,3 +16,13 @@ Credits
 8. Ian Devinagracia
 10. John Vincent Diaz
 11. John Michael Arcena
+
+What's new!!!
+1. Update tutorials
+2. Set all files to a current project file
+3. Removed unwanted files on "Open Files"
+
+Under debugging!!!
+1. Android 10 above, permission error
+
+There are still unknown errors for this project, if you want to help me to debug, kindly give us your negative feedback thru the feedback section of the app.
