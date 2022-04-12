@@ -5,7 +5,7 @@ It is now an open-source project. Feel free to use the source with all care and 
 
 All developed by MPOP Reverse II
 
-[https://github.com/RyannKim327/Front-end-Editor/blob/main/Beta%20release.apk](Beta release.apk)
+[Beta release.apk](https://github.com/RyannKim327/Front-end-Editor/blob/main/Beta%20release.apk)
 
 ##### Credits
 1. John Jeremy Antiguo
