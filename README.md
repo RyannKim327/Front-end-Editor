@@ -60,6 +60,6 @@ All developed by MPOP Reverse II
 	}
 }
 ```
-> Use the storage directory to get the values. Like "/storage/emulated/0/config.json" without any quotation. I still don't know if the keys are case sensitive, but make sure that the json configuration format (keys) must be same as what you see.
+> Use the storage directory to get the values. Like "/storage/emulated/0/config.json" without any quotation. I still don't know if the keys are case sensitive, but make sure that the json configuration format (keys) must be same as what you see. [Full tutorial](tutorial.md)
 
 There are still unknown errors for this project, if you want to help me to debug, kindly give us your negative feedback thru the feedback section of the app.
