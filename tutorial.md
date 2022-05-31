@@ -65,6 +65,8 @@ Here are the additional keys under the three syntax name (key)
 | string | String (hex) | A hexadecimal format color code for string, digits. |
 | comment | String (hex) | A hexadecimal format color code for comments. |
 
+The colors are all in RGB format. (Red, Green, Blue)
+
 Here is the sample JSON Configuration, to make it clear.
 ```JSON
 {
