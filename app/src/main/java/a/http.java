@@ -11,7 +11,7 @@ import java.net.URLEncoder;
 public class http extends AsyncTask {
 	private Context con;
 	private int decide;
-    private String url = "https://mpopreverseii.eu5.org/";
+	private String url = "https://mpopreverseii.eu5.org/";
 	public static int DECIDE_SEND_FEED = 0 ;
 	public static int DECIDE_GET_FEED = 1;
 	public static int DECIDE_USER = 2;
@@ -65,7 +65,7 @@ public class http extends AsyncTask {
 				con.sendBroadcast(j);
 			break;
 			case 3:
-			    toast.makeText(con, r, 1).show();
+				toast.makeText(con, r, 1).show();
 			break;
 		}
 	}

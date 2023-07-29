@@ -1,146 +1,146 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-<title>This is a sample template</title>
-<style type="text/css">
-*{
-font-variant: small-caps;
-user-select: none;
-}
-.head h3{
-padding: 1vw 5vw;
-margin: 0;
-font-family: "Times New Roman", serif;
-color: #927592;
-}
-.head h5, .foot h6{
-padding: 1vw 10vw;
-margin: 0;
-font-family: "Courier New", monospace;
-color: #b1b9b2;
-font-weight: bold;
-}
-.foot h6{
-text-align: center;
-padding: 0;
-margin: 5vw 0;
-color: #927592;
-}
-.block{
-backgrounf-color: #eff1f2;
-box-shadow: 1vw 1vw 5vw #d9d9d9;
-border-radius: 5vw;
-padding: 1vw 5vw;
-margin: 2vw;
-color: #927592;
-font-family: "Courier New", monospace;
-text-align: justify;
-font-weight: bold;
-}
-.block blockquote{
-padding: 0 3vw;
-border-left: 1vw #925792 solid;
-font-family: "Courier New", monospace;
-text-align: justify;
-color: #927592;
-margin: 1vw 5vw;
-}
-.block small{
-font-family: "Times New Roman", serif;
-font-style: italic;
-}
-.block h3{
-font-family: "Times New Roman", serif;
-font-style: italic;
-color: #b1d7b1;
-text-shadow: 1vw 1vw 1px #d1fee2;
-}
-</style>
-</head>
-<body>
-<div class="head">
-<h3>Welcome</h3>
-<h5>MPOP Reverse II <label id="time"></label></h5>
-</div>
-<div class="block">
-<h3>Tutorial</h3>
-<ol>
-<li>See the editing field</li>
-<p>&emsp;To make the editing field visible, just tap your back navigation once.</p>
-<li>See the menu</li>
-<p>&emsp;There are two ways to see the menu, but they are not same in list. First is by clicking the back navigation of your mobile phone while the editing field is active, and the other one is long press the gray line separator</p>
-<li>Can I customized the editing field?</li>
-<p>&emsp;Yes, you can. By going to the menu, look for the Settings, and you may edit the editing field by what you want.</p>
-<li>How to use external syntax?</li>
-<p>&emsp;Just like using the normal syntax of <code>&lt;link href="style" rel="stylesheet"&gt; and &lt;script="script.js"&gt;&lt;/script&gt;b</code>. But now, make it easier than the last version. I make it auto saved thru the default folder project.</p>
-<li>Where is the JavaScript Console?</li>
-<p>&emsp;You may see the JavaScript console by holding the line separator of the app.</p>
-</ol>
-</div>
-<div class="block">
-<h3>Features</h3>
-<ol>
-<li>Back pressed menu</li>
-<li>Desktop mode (Landscape View)</li>
-<li>Mobile mode (Portrait View)</li>
-<li>External Files Fixed</li>
-<ul>
-<li>Save files</li>
-<li>Open files</li>
-</ul>
-<li>Share text</li>
-<li>Customization added</li>
-<ul>
-<li>Default template</li>
-<li>Font</li>
-<li>Text size</li>
-<li>Custom file directory</li>
-<li>Wrap and No-wrap editing field</li>
-</ul>
-<li>Feedback</li>
-<ul>
-<li>Email (Google Mail)</li>
-<li>Facebook (WebView)</li>
-<li>Self database</li>
-</ul>
-<li>See other feedbacks (Self database feature)</li>
-<li>User Login and Registration</li>
-<li>One time tutorial</li>
-<li>Full screen mode</li>
-<li>Avoided accidental clear text</li>
-<li>Syntax Editor (For external use)</li>
-<ul>
-<li>HTML</li>
-<li>CSS</li>
-<li>JavaScript</li>
-</ul>
-<li>JavaScript Console</li>
-<li>Auto saved file</li>
-<ul>
-<li>Cascading Style Sheet</li>
-<li>JavaScript</li>
-</ul>
-<li>Direct save thru the folder (Project) name</li>
-</ol>
-</div>
-<div class="block">
-<h3>What about us?</h3>
-<p>&emsp;MPOP Reverse II is a solo developer who created this project. With the help of friends and also the internet, I can make some debugging test. If you were willing to be a tester, kindly send your feedback, specially your bad experiences to our official facebook page. Just go to the feedback and login your account.</p>
-<p>&emsp;You don't need to be worried, because I didn't get, any of your personal information.
-</div>
-<div class="block">
-<h3>Life quote</h3>
-<blockquote>
-&emsp;Life sometimes is just a waste of time, if you done nothing.<br>
-<small>- Ulan</small>
-</blockquote>
-</div>
-<div class="foot">
-<h6>Developed under the name of MPOP Reverse II</h6>
-</div>
-</body>
-<script type="text/javascript">
-document.getElementById("time").textContent = "¦ 2017 - " + new Date().getFullYear();
-</script>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+		<title>This is a sample template</title>
+		<style type="text/css">
+			*{
+				font-variant: small-caps;
+				user-select: none;
+			}
+			.head h3{
+				padding: 1vw 5vw;
+				margin: 0;
+				font-family: "Times New Roman", serif;
+				color: #927592;
+			}
+			.head h5, .foot h6{
+				padding: 1vw 10vw;
+				margin: 0;
+				font-family: "Courier New", monospace;
+				color: #b1b9b2;
+				font-weight: bold;
+			}
+			.foot h6{
+				text-align: center;
+				padding: 0;
+				margin: 5vw 0;
+				color: #927592;
+			}
+			.block{
+				background-color: #eff1f2;
+				box-shadow: 1vw 1vw 5vw #d9d9d9;
+				border-radius: 5vw;
+				padding: 1vw 5vw;
+				margin: 2vw;
+				color: #927592;
+				font-family: "Courier New", monospace;
+				text-align: justify;
+				font-weight: bold;
+			}
+			.block blockquote{
+				padding: 0 3vw;
+				border-left: 1vw #925792 solid;
+				font-family: "Courier New", monospace;
+				text-align: justify;
+				color: #927592;
+				margin: 1vw 5vw;
+			}
+			.block small{
+				font-family: "Times New Roman", serif;
+				font-style: italic;
+			}
+			.block h3{
+				font-family: "Times New Roman", serif;
+				font-style: italic;
+				color: #b1d7b1;
+				text-shadow: 1vw 1vw 1px #d1fee2;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="head">
+			<h3>Welcome</h3>
+			<h5>MPOP Reverse II <label id="time"></label></h5>
+		</div>
+		<div class="block">
+			<h3>Tutorial</h3>
+			<ol>
+				<li>See the editing field</li>
+				<p>&emsp;To make the editing field visible, just tap your back navigation once.</p>
+				<li>See the menu</li>
+				<p>&emsp;There are two ways to see the menu, but they are not same in list. First is by clicking the back navigation of your mobile phone while the editing field is active, and the other one is long press the gray line separator</p>
+				<li>Can I customized the editing field?</li>
+				<p>&emsp;Yes, you can. By going to the menu, look for the Settings, and you may edit the editing field by what you want.</p>
+				<li>How to use external syntax?</li>
+				<p>&emsp;Just like using the normal syntax of <code>&lt;link href="style" rel="stylesheet"&gt; and &lt;script="script.js"&gt;&lt;/script&gt;b</code>. But now, make it easier than the last version. I make it auto saved thru the default folder project.</p>
+				<li>Where is the JavaScript Console?</li>
+				<p>&emsp;You may see the JavaScript console by holding the line separator of the app.</p>
+			</ol>
+		</div>
+		<div class="block">
+			<h3>Features</h3>
+			<ol>
+				<li>Back pressed menu</li>
+				<li>Desktop mode (Landscape View)</li>
+				<li>Mobile mode (Portrait View)</li>
+				<li>External Files Fixed</li>
+				<ul>
+					<li>Save files</li>
+					<li>Open files</li>
+				</ul>
+					<li>Share text</li>
+					<li>Customization added</li>
+				<ul>
+					<li>Default template</li>
+					<li>Font</li>
+					<li>Text size</li>
+					<li>Custom file directory</li>
+					<li>Wrap and No-wrap editing field</li>
+				</ul>
+					<li>Feedback</li>
+				<ul>
+					<li>Email (Google Mail)</li>
+					<li>Facebook (WebView)</li>
+					<li>Self database</li>
+				</ul>
+					<li>See other feedbacks (Self database feature)</li>
+					<li>User Login and Registration</li>
+					<li>One time tutorial</li>
+					<li>Full screen mode</li>
+					<li>Avoided accidental clear text</li>
+					<li>Syntax Editor (For external use)</li>
+				<ul>
+					<li>HTML</li>
+					<li>CSS</li>
+					<li>JavaScript</li>
+				</ul>
+					<li>JavaScript Console</li>
+					<li>Auto saved file</li>
+					<ul>
+					<li>Cascading Style Sheet</li>
+					<li>JavaScript</li>
+				</ul>
+				<li>Direct save thru the folder (Project) name</li>
+			</ol>
+		</div>
+		<div class="block">
+			<h3>What about us?</h3>
+			<p>&emsp;MPOP Reverse II is a solo developer who created this project. With the help of friends and also the internet, I can make some debugging test. If you were willing to be a tester, kindly send your feedback, specially your bad experiences to our official facebook page. Just go to the feedback and login your account.</p>
+			<p>&emsp;You don't need to be worried, because I didn't get, any of your personal information.
+		</div>
+		<div class="block">
+			<h3>Life quote</h3>
+			<blockquote>
+				&emsp;Life sometimes is just a waste of time, if you done nothing.<br>
+				<small>- Ulan</small>
+			</blockquote>
+		</div>
+		<div class="foot">
+			<h6>Developed under the name of MPOP Reverse II</h6>
+		</div>
+	</body>
+	<script type="text/javascript">
+		document.getElementById("time").textContent = "¦ 2017 - " + new Date().getFullYear();
+	</script>
 </html>

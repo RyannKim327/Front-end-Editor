@@ -64,11 +64,11 @@ public class a extends Activity implements TextWatcher{
 	ValueCallback<Uri> fileAccess;
 	ValueCallback<Uri[]> FileAccess;
 	String save = "";
-    String html = "<!DOCTYPE html>\n<html>\n<head>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, minimal-ui\">\n<title>This is a sample template</title>\n<link rel=\"stylesheet\" href=\"styles.css\">\n<style type=\"text/css\">\n\n</style>\n</head>\n<body>\n<p>Hello World</p>\n</body>\n<script type=\"text/javascript\" src=\"script.js\">\n</script>\n</html>";
-    String css = "*{\nbox-sizing: border-box;\nborder: none;\noutline: 0;\npadding: 0;\nmargin: 0;\n}";
-    String js = "console.log(\"Hello World\");";
+	String html = "<!DOCTYPE html>\n<html>\n<head>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, minimal-ui\">\n<title>This is a sample template</title>\n<link rel=\"stylesheet\" href=\"styles.css\">\n<style type=\"text/css\">\n\n</style>\n</head>\n<body>\n<p>Hello World</p>\n</body>\n<script type=\"text/javascript\" src=\"script.js\">\n</script>\n</html>";
+	String css = "*{\nbox-sizing: border-box;\nborder: none;\noutline: 0;\npadding: 0;\nmargin: 0;\n}";
+	String js = "console.log(\"Hello World\");";
 	String console = "";
-    boolean opened = false, feedOpened =  true;
+	boolean opened = false, feedOpened =  true;
 	String[] menu = {
 		"Save as file",
 		"Open a file",
@@ -85,31 +85,31 @@ public class a extends Activity implements TextWatcher{
 		"MPOP Feedback Form",
 		"See Feedbacks on MPOP Reverse II"
 	};
-    String[] syntax = {
-        "HTML",
-        "CSS",
-        "JavaScript"
-    };
+	String[] syntax = {
+		"HTML",
+		"CSS",
+		"JavaScript"
+	};
 	ShapeDrawable backgroundDialog;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 		setTheme(android.R.style.Theme_DeviceDefault_NoActionBar);
 		preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        base = new LinearLayout(this);
+		base = new LinearLayout(this);
 		code = new EditText(this);
 		output = new WebView(this);
 		separator = new View(this);
-        float radii = 25;
-        backgroundDialog = new ShapeDrawable(new RoundRectShape(new float[]{radii, radii, radii, radii, radii, radii, radii, radii}, null, null));
-        backgroundDialog.getPaint().setColor(Color.parseColor("#13132a"));
+		float radii = 25;
+		backgroundDialog = new ShapeDrawable(new RoundRectShape(new float[]{radii, radii, radii, radii, radii, radii, radii, radii}, null, null));
+		backgroundDialog.getPaint().setColor(Color.parseColor("#13132a"));
 		separator.setBackgroundColor(Color.parseColor("#aaaaaa"));
 		separator.setOnClickListener(new OnClickListener(){
-                @Override
-                public void onClick(View p1) {
-                    addedMenu();
-                }
-            });
+				@Override
+				public void onClick(View p1) {
+					addedMenu();
+				}
+			});
 		separator.setOnLongClickListener(new OnLongClickListener(){
 				@Override
 				public boolean onLongClick(View p1) {
@@ -124,7 +124,7 @@ public class a extends Activity implements TextWatcher{
 					return false;
 				}
 			});
-        code.setTypeface(font(preferences.getString("font", "DEFAULT")));
+		code.setTypeface(font(preferences.getString("font", "DEFAULT")));
 		code.setTextSize((preferences.getInt("size", 15) >= 13 && preferences.getInt("size", 15) <= 50) ? preferences.getInt("size", 15) : 19);
 		code.setText(preferences.getString(preferences.getString("syntax", "html"), html));
 		code.setTextColor(Color.WHITE);
@@ -199,8 +199,8 @@ public class a extends Activity implements TextWatcher{
 				AlertDialog d = b.create();
 				d.getWindow().setBackgroundDrawable(backgroundDialog);
 				d.show();
-                d.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#dedede"));
-                return true;
+				d.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#dedede"));
+				return true;
 			}
 			@Override
 			public boolean onJsConfirm(WebView v, String s, String s2, final JsResult j){
@@ -223,8 +223,8 @@ public class a extends Activity implements TextWatcher{
 				AlertDialog d = b.create();
 				d.getWindow().setBackgroundDrawable(backgroundDialog);
 				d.show();
-                d.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#dedede"));
-                d.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#dedede"));
+				d.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#dedede"));
+				d.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#dedede"));
 				return true;
 			}
 			@Override
@@ -250,15 +250,15 @@ public class a extends Activity implements TextWatcher{
 				final AlertDialog d = b.create();
 				d.getWindow().setBackgroundDrawable(backgroundDialog);
 				d.show();
-                d.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#dedede"));
-                d.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#dedede"));
+				d.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#dedede"));
+				d.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#dedede"));
 				d.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
 				e.addTextChangedListener(new TextWatcher(){
 						@Override
 						public void beforeTextChanged(CharSequence p1, int p2, int p3, int p4) {}
 						@Override
 						public void onTextChanged(CharSequence p1, int p2, int p3, int p4) {
-				    		d.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(e.getText().toString().length() > 0);
+							d.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(e.getText().toString().length() > 0);
 						}
 						@Override
 						public void afterTextChanged(Editable p1) {}
@@ -316,45 +316,45 @@ public class a extends Activity implements TextWatcher{
 				public void onReceive(Context p1, Intent p2) {
 					final AlertDialog.Builder a = new AlertDialog.Builder(a.this);
 					try{
-                        String c = p2.getStringExtra("result").replace("mpopreverseii.eu5.org", "website");
-					    a.setTitle("Feedbacks");
-				    	ArrayAdapter<String> d = new ArrayAdapter<String>(a.this, android.R.layout.simple_list_item_1, c.split("=/=/=/="));
-				    	a.setAdapter(d, null);
-					    a.setPositiveButton("Close", null);
-				    	a.setCancelable(false);
-				    	AlertDialog e = a.create();
-				    	e.getWindow().setBackgroundDrawable(backgroundDialog);
-			    		e.show();
-                        e.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#dedede"));
-                    }catch(Exception e){
-                        toast.makeText(a.this, "Something went wrong", 1).show();
-                    }
+						String c = p2.getStringExtra("result").replace("mpopreverseii.eu5.org", "website");
+						a.setTitle("Feedbacks");
+						ArrayAdapter<String> d = new ArrayAdapter<String>(a.this, android.R.layout.simple_list_item_1, c.split("=/=/=/="));
+						a.setAdapter(d, null);
+						a.setPositiveButton("Close", null);
+						a.setCancelable(false);
+						AlertDialog e = a.create();
+						e.getWindow().setBackgroundDrawable(backgroundDialog);
+						e.show();
+						e.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#dedede"));
+					}catch(Exception e){
+						toast.makeText(a.this, "Something went wrong", 1).show();
+					}
 				}
 			}, new IntentFilter(getPackageName() + ".GET_FEEDS"));
 		registerReceiver(new BroadcastReceiver(){
 				@Override
 				public void onReceive(Context p1, Intent p2) {
 					try{
-                        String[] s = p2.getStringExtra("result").replace("mpopreverseii.eu5.org", "website").split("=/=/=");
-					    if(s[0].equals("1")){
-				    		preferences.edit().putString("user", s[2]).commit();
-			    			toast.makeText(a.this, s[1], 1).show();
-				    	}else{
-				    		toast.makeText(a.this, s[1], 1).show();
-					    }
-                    }catch(Exception e){
-                        toast.makeText(a.this, "Something went wrong", 1).show();
-                    }
+						String[] s = p2.getStringExtra("result").replace("mpopreverseii.eu5.org", "website").split("=/=/=");
+						if(s[0].equals("1")){
+							preferences.edit().putString("user", s[2]).commit();
+							toast.makeText(a.this, s[1], 1).show();
+						}else{
+							toast.makeText(a.this, s[1], 1).show();
+						}
+					}catch(Exception e){
+						toast.makeText(a.this, "Something went wrong", 1).show();
+					}
 				}
 			}, new IntentFilter(getPackageName() + ".GET_USER_RESPONSE"));
 		setContentView(base);
-    }
+	}
 	@Override
 	public void beforeTextChanged(CharSequence p1, int p2, int p3, int p4) {}
 	@Override
 	public void onTextChanged(CharSequence p1, int p2, int p3, int p4) {
 		if(code.getText().toString().length() > 10){
-		    preferences.edit().putString(preferences.getString("syntax", "html"), code.getText().toString()).commit();
+			preferences.edit().putString(preferences.getString("syntax", "html"), code.getText().toString()).commit();
 		}else{
 			code.setText(preferences.getString(preferences.getString("syntax", "html"), html));
 		}
@@ -380,7 +380,7 @@ public class a extends Activity implements TextWatcher{
 						createJS();
 					break;
 				}
-	    	}
+			}
 		}else{
 			switch(s){
 				case "html":
@@ -418,7 +418,7 @@ public class a extends Activity implements TextWatcher{
 		}
 		return p1;
 	}
-    void createHtmlFile(){
+	void createHtmlFile(){
 		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
 			if(checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
 				File f = new File("/storage/emulated/0/" + preferences.getString("dir", "Front-end Editor")  , ".nomedia.html");
@@ -587,13 +587,13 @@ public class a extends Activity implements TextWatcher{
 							openAFile();
 						break;
 						case "shareastext":
-						    Intent intent = new Intent(Intent.ACTION_SEND);
+							Intent intent = new Intent(Intent.ACTION_SEND);
 							String str = "<!--\nFile: index.html\n-->\n" + preferences.getString("html", html);
 							if(preferences.getString("html", html).contains("href=\"styles.css\"")){
-							    str += "/*\nFile: styles.css\n*/\n" + preferences.getString("css", css);
+								str += "/*\nFile: styles.css\n*/\n" + preferences.getString("css", css);
 							}
 							if(preferences.getString("html", html).contains("src=\"script.js\"")){
-						    	str += "/*\nFile: script.js\n*/\n" + preferences.getString("javascript", js);
+								str += "/*\nFile: script.js\n*/\n" + preferences.getString("javascript", js);
 							}
 							intent.putExtra(Intent.EXTRA_SUBJECT, str);
 							intent.putExtra(Intent.EXTRA_TEXT, str);
@@ -629,16 +629,16 @@ public class a extends Activity implements TextWatcher{
 		AlertDialog d = a.create();
 		d.getWindow().setBackgroundDrawable(backgroundDialog);
 		d.show();
-        d.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#dedede"));
+		d.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#dedede"));
 	}
-    void addedMenu(){
-        AlertDialog.Builder b = new AlertDialog.Builder(this);
-        final ArrayAdapter<String> l = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, syntax);
-        b.setTitle("Syntax:");
-        b.setAdapter(l, new DialogInterface.OnClickListener(){
-                @Override
-                public void onClick(DialogInterface p1, int p2) {
-                    preferences.edit().putString("syntax", String.valueOf(l.getItem(p2).toLowerCase())).commit();
+	void addedMenu(){
+		AlertDialog.Builder b = new AlertDialog.Builder(this);
+		final ArrayAdapter<String> l = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, syntax);
+		b.setTitle("Syntax:");
+		b.setAdapter(l, new DialogInterface.OnClickListener(){
+				@Override
+				public void onClick(DialogInterface p1, int p2) {
+					preferences.edit().putString("syntax", String.valueOf(l.getItem(p2).toLowerCase())).commit();
 					toast.makeText(a.this, "Syntax is changed to " + String.valueOf(l.getItem(p2)), 1);
 					switch(l.getItem(p2).toLowerCase()){
 						case "html":
@@ -651,15 +651,15 @@ public class a extends Activity implements TextWatcher{
 							code.setText(preferences.getString(preferences.getString("syntax", "html"), js));
 						break;
 					}
-                }
-            });
-        b.setPositiveButton("Cancel", null);
-        b.setCancelable(false);
-        AlertDialog d = b.create();
-        d.getWindow().setBackgroundDrawable(backgroundDialog);
-        d.show();
+				}
+			});
+		b.setPositiveButton("Cancel", null);
+		b.setCancelable(false);
+		AlertDialog d = b.create();
+		d.getWindow().setBackgroundDrawable(backgroundDialog);
+		d.show();
 		d.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#dedede"));
-    }
+	}
 	void feedback(){
 		AlertDialog.Builder a = new AlertDialog.Builder(this);
 		final ArrayAdapter<String> b = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, feedback);
@@ -672,28 +672,28 @@ public class a extends Activity implements TextWatcher{
 					switch(s){
 						case "facebook":
 							if(checkInternet()){
-						    	output.loadUrl("https://free.facebook.com/messages/thread/101484375409392/");
-						    	code.setVisibility(View.GONE);
-						    	toast.makeText(a.this, "Please wait to load", 1).show();
+								output.loadUrl("https://free.facebook.com/messages/thread/101484375409392/");
+								code.setVisibility(View.GONE);
+								toast.makeText(a.this, "Please wait to load", 1).show();
 							}else{
 								toast.makeText(a.this, "Internet is not connected", 1).show();
 							}
 						break;
 						case "gmail":
 							if(checkInternet()){
-					    		Intent intent = new Intent(Intent.ACTION_SEND);
-					    		intent.putExtra(Intent.EXTRA_SUBJECT, getTitle());
-						    	intent.setType("text/html");
-						    	intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"weryses19@gmail.com"});
-						    	if(checkInstall("com.google.android.gm")){
-					    			intent.setPackage("com.google.android.gm");
-						    		startActivity(intent);
-					    		}else if(checkInstall("com.google.android.gm.lite")){
-					    			intent.setPackage("com.google.android.gm.lite");
-					    			startActivity(intent);
-					    		}else{
-					    			toast.makeText(a.this, "Install Gmail app first", 1).show();
-					    		}
+								Intent intent = new Intent(Intent.ACTION_SEND);
+								intent.putExtra(Intent.EXTRA_SUBJECT, getTitle());
+								intent.setType("text/html");
+								intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"weryses19@gmail.com"});
+								if(checkInstall("com.google.android.gm")){
+									intent.setPackage("com.google.android.gm");
+									startActivity(intent);
+								}else if(checkInstall("com.google.android.gm.lite")){
+									intent.setPackage("com.google.android.gm.lite");
+									startActivity(intent);
+								}else{
+									toast.makeText(a.this, "Install Gmail app first", 1).show();
+								}
 							}else{
 								toast.makeText(a.this, "Internet connection is not active", 1).show();
 							}
@@ -730,8 +730,8 @@ public class a extends Activity implements TextWatcher{
 									final AlertDialog a = b.create();
 									a.show();
 									a.getWindow().setBackgroundDrawable(backgroundDialog);
-                                    a.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#dedede"));
-                                    a.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#dedede"));
+									a.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#dedede"));
+									a.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#dedede"));
 									a.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
 									e.addTextChangedListener(new TextWatcher(){
 											@Override
@@ -762,7 +762,7 @@ public class a extends Activity implements TextWatcher{
 							if(preferences.getString("user", "").isEmpty()){
 								panel();
 							}else{
-						    	mpopfeed();
+								mpopfeed();
 							}
 						break;
 					}
@@ -773,7 +773,7 @@ public class a extends Activity implements TextWatcher{
 		AlertDialog d = a.create();
 		d.getWindow().setBackgroundDrawable(backgroundDialog);
 		d.show();
-        d.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#dedede"));
+		d.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#dedede"));
 	}
 	void mpopfeed(){
 		http feedbacks = new http(a.this, http.DECIDE_GET_FEED);
@@ -787,18 +787,18 @@ public class a extends Activity implements TextWatcher{
 		if(f.exists()){
 			if(f.list().length > 0){
 				final ArrayAdapter<String> a = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
-                for(int i = 0; i < f.list().length; i++){
+				for(int i = 0; i < f.list().length; i++){
 					if(!f.list()[i].contains(".nomedia.html") && (f.list()[i].endsWith(".html") || f.list()[i].endsWith(".css") || f.list()[i].endsWith(".js"))){
 						a.add(f.list()[i]);
 						a.notifyDataSetChanged();
 					}
 				}
 				a.sort(new Comparator<String>(){
-                        @Override
-                        public int compare(String p1, String p2) {
-                            return p1.compareToIgnoreCase(p2);
-                        }
-                    });
+						@Override
+						public int compare(String p1, String p2) {
+							return p1.compareToIgnoreCase(p2);
+						}
+					});
 				b.setAdapter(a, new DialogInterface.OnClickListener(){
 						@Override
 						public void onClick(DialogInterface p1, int p2) {
@@ -813,7 +813,7 @@ public class a extends Activity implements TextWatcher{
 								preferences.edit().putString("syntax", "html").commit();
 								toast.makeText(a.this, "Syntax is automatically changed to HTML", 1);
 							}
-						    openAFile(n);
+							openAFile(n);
 						}
 					});
 			}else{
@@ -827,7 +827,7 @@ public class a extends Activity implements TextWatcher{
 		AlertDialog d = b.create();
 		d.getWindow().setBackgroundDrawable(backgroundDialog);
 		d.show();
-        d.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#dedede"));
+		d.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#dedede"));
 	}
 	void openAFile(String g1){
 		code.setText(accessFileContent(g1));
@@ -840,7 +840,7 @@ public class a extends Activity implements TextWatcher{
 				c += s.nextLine() + (s.hasNext() ? "\n" : "");
 			}
 			toast.makeText(a.this, "Done", 1).show();
-            save = g1;
+			save = g1;
 			return c;
 		} catch (FileNotFoundException e) {
 			toast.makeText(a.this, "File not found", 1).show();
@@ -859,7 +859,7 @@ public class a extends Activity implements TextWatcher{
 		a.setTitle("Configurations:");
 		a.setIcon(R.drawable.settings);
 		c.setOrientation(LinearLayout.VERTICAL);
-        c.setPadding(20, 5, 20, 5);
+		c.setPadding(20, 5, 20, 5);
 		defaultTemplate.setHint("Enter default template");
 		font.setHint("Enter font directory or font type");
 		size.setHint("Enter text size");
@@ -870,7 +870,7 @@ public class a extends Activity implements TextWatcher{
 		dir.setText(preferences.getString("dir", "Front-end Editor"));
 		wrap.setText("Wrap text");
 		wrap.setChecked(preferences.getBoolean("wrap", false));
-        defaultTemplate.setMaxLines(10);
+		defaultTemplate.setMaxLines(10);
 		font.setSingleLine();
 		size.setSingleLine();
 		dir.setSingleLine();
@@ -919,8 +919,8 @@ public class a extends Activity implements TextWatcher{
 		AlertDialog d = a.create();
 		d.getWindow().setBackgroundDrawable(backgroundDialog);
 		d.show();
-        d.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#dedede"));
-        d.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#dedede"));
+		d.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#dedede"));
+		d.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#dedede"));
 	}
 	void saveAsFile(){
 		AlertDialog.Builder a = new AlertDialog.Builder(this);
@@ -932,21 +932,21 @@ public class a extends Activity implements TextWatcher{
 		a.setPositiveButton("Save", new DialogInterface.OnClickListener(){
 				@Override
 				public void onClick(DialogInterface p1, int p2) {
-                    String x = preferences.getString("syntax", "html");
+					String x = preferences.getString("syntax", "html");
 					String y = b.getText().toString();
-                    switch(x){
-                        case "html":
+					switch(x){
+						case "html":
 							if(y.replace(".css", "").endsWith(".css") && !y.replace(".css", "").isEmpty()){
 								y = y.replace(".css", "");
 							}
 							if(y.replace(".js", "").endsWith(".js") && !y.replace(".js", "").isEmpty()){
 								y = y.replace(".js", "");
 							}
-                            if(!y.endsWith(".html")){
+							if(!y.endsWith(".html")){
 								y += ".html";
 							}
-                        break;
-                        case "css":
+						break;
+						case "css":
 							if(y.replace(".html", "").endsWith(".html") && !y.replace(".html", "").isEmpty()){
 								y = y.replace(".html", "");
 							}
@@ -968,7 +968,7 @@ public class a extends Activity implements TextWatcher{
 								y += ".js";
 							}
 						break;
-                    }
+					}
 					saveAsFile(y);
 				}
 			});
@@ -977,8 +977,8 @@ public class a extends Activity implements TextWatcher{
 		final AlertDialog d = a.create();
 		d.getWindow().setBackgroundDrawable(backgroundDialog);
 		d.show();
-        d.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#dedede"));
-        d.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#dedede"));
+		d.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#dedede"));
+		d.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#dedede"));
 		d.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(b.getText().toString().replace(" ", "").length() > 0);
 		b.addTextChangedListener(new TextWatcher(){
 				@Override
@@ -1086,8 +1086,8 @@ public class a extends Activity implements TextWatcher{
 		final AlertDialog g = a.create();
 		g.getWindow().setBackgroundDrawable(backgroundDialog);
 		g.show();
-        g.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#dedede"));
-        g.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#dedede"));
+		g.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#dedede"));
+		g.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#dedede"));
 		g.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
 		f.setOnCheckedChangeListener(new OnCheckedChangeListener(){
 				@Override
@@ -1236,9 +1236,9 @@ public class a extends Activity implements TextWatcher{
 	}
 	boolean checkInternet(){
 		try{
-	    	ConnectivityManager c = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
-    		NetworkInfo n = c.getActiveNetworkInfo();
-	    	return n.isConnected() || n.isAvailable();
+			ConnectivityManager c = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+			NetworkInfo n = c.getActiveNetworkInfo();
+			return n.isConnected() || n.isAvailable();
 		}catch(Exception e){
 			return false;
 		}
@@ -1321,10 +1321,10 @@ public class a extends Activity implements TextWatcher{
 		}else{
 			AlertDialog d = b.create();
 			d.getWindow().setBackgroundDrawable(backgroundDialog);
-		    d.show();
-            d.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#dedede"));
-            d.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#dedede"));
-            d.getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(Color.parseColor("#dedede"));
+			d.show();
+			d.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#dedede"));
+			d.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#dedede"));
+			d.getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(Color.parseColor("#dedede"));
 		}
 	}
 	@Override
@@ -1347,7 +1347,7 @@ public class a extends Activity implements TextWatcher{
 		switch(requestCode){
 			case 0:
 				if(fileAccess == null)
-				    return;
+					return;
 				Uri u = data == null || resultCode != RESULT_OK ? null : data.getData();
 				fileAccess.onReceiveValue(u);
 				fileAccess = null;
@@ -1355,7 +1355,7 @@ public class a extends Activity implements TextWatcher{
 			case 1:
 				if(FileAccess == null)
 					return;
-			    FileAccess.onReceiveValue(WebChromeClient.FileChooserParams.parseResult(resultCode, data));
+				FileAccess.onReceiveValue(WebChromeClient.FileChooserParams.parseResult(resultCode, data));
 				FileAccess = null;
 			break;
 		}
